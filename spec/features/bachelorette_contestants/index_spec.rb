@@ -17,12 +17,18 @@ describe 'As a visitor' do
 
       within "#contestant-#{@jeff.id}" do
         expect(page).to have_content(@jeff.name)
+        expect(page).to have_content(@jeff.age)
+        expect(page).to have_content(@jeff.hometown)
       end
       within "#contestant-#{@steve.id}" do
         expect(page).to have_content(@steve.name)
+        expect(page).to have_content(@steve.age)
+        expect(page).to have_content(@steve.hometown)
       end
       within "#contestant-#{@eric.id}" do
         expect(page).to have_content(@eric.name)
+        expect(page).to have_content(@eric.age)
+        expect(page).to have_content(@eric.hometown)
       end
 
       expect(page).to_not have_content(@pete.name)
