@@ -11,7 +11,10 @@ describe 'As a visitor' do
       @eric = @sara.contestants.create!({name: "Eric", age: 28, hometown: "Madison"})
       @pete = @sally.contestants.create!({name: "Pete", age: 28, hometown: "Madison"})
 
-      @outing1 = 
+      @outing1 = @jeff.outings.create({description: "Helicopter Ride"})
+      @outing2 = @jeff.outings.create({description: "Rollercoaster Ride"})
+      @outing3 = @steve.outings.create({description: "Walk on Beach"})
+
     end
 
     it 'i see the contestants name, season, and season description' do
@@ -24,7 +27,21 @@ describe 'As a visitor' do
     it 'i see a list of the contestants outings' do
       visit "/contestants/#{@jeff.id}"
 
+      within "#outing-#{@outing1.id}" do
+        expect(page).to have_content(@outing1.description)
+      end
+      within "#outing-#{@outing2.id}" do
+        expect(page).to have_content(@outing2.description)
+      end
+      
+      expect(page).to_not have_content(@outing3.description)
+
+      save_and_open_page
     end
-    it "when I click on an outing, i'm directed to the outings show page"
+    it "when I click on an outing, i'm directed to the outings show page" do
+      visit "/contestants/#{@jeff.id}"
+      click_on("#{@outing1.description}")
+      expect(current_path).to eq("/outings/#{@outing1.id}")
+    end
   end
 end
