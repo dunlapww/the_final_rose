@@ -22,5 +22,9 @@ describe 'As a visitor' do
       click_on "Contestants"
       expect(current_path).to eq("/bachelorettes/#{@sara.id}/contestants")
     end
+    it 'I see the average age of all the contestants' do
+      visit "/bachelorettes/#{@sara.id}"
+      expect(page).to have_content("Average Contestant Age: #{@sara.avg_contestant_age.round(0)}")
+    end
   end
 end
