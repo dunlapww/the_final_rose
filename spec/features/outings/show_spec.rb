@@ -13,6 +13,7 @@ describe 'As a visitor' do
     @outing1 = @jeff.outings.create({description: "Helicopter Ride", location: "the sky", date: Time.zone.now.to_date})
     @outing2 = @jeff.outings.create({description: "Rollercoaster Ride", location: "amusement park", date: Time.zone.now.to_date})
     @outing3 = @steve.outings.create({description: "Walk on Beach", location: "ocean", date: Time.zone.now.to_date})
+    ContestantOuting.create(contestant_id: @steve.id, outing_id: @outing2.id)
   end
   
   describe 'When I visit an outings show page' do
@@ -26,6 +27,15 @@ describe 'As a visitor' do
       visit "/outings/#{@outing1.id}"
       expect(page).to have_content("Num of Contestants: #{@outing1.num_of_contestants}")
     end
-    it 'show a list of all the contestant names on the outing'
+    it 'show a list of all the contestant names on the outing' do
+      visit "/outings/#{@outing2.id}"
+      within "#contestants" do
+        expect(page).to have_content("Jeff")
+        expect(page).to have_content("Steve")
+      end
+
+    end
+
+
   end
 end
