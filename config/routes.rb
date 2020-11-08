@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :contestants, only: :show
 
   get "/bachelorettes/:bachelorette_id/contestants", to: "bachelorette_contestants#index"
+
+  resources :outings, only: :show
 end
