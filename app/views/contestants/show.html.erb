@@ -1,7 +1,10 @@
 Name: <%= @contestant.name %><br>
 Season: <%= @contestant.bachelorette.season.id %><br>
 Season Description: <%= @contestant.bachelorette.season.description %><br>
-
+These contestants are from: 
+<% contestants.hometowns.each do |hometown| %>
+  <%= hometown %>
+<% end%>
 <h2>Outings</h2>
 
 <% @contestant.outings.each do |outing|%>

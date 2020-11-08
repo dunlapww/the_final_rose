@@ -21,6 +21,7 @@ RSpec.describe Bachelorette, type: :model do
       @season = Season.create!({description: "Young lady find a hunk"})
       @sara = @season.bachelorettes.create!({name: "Sara"})
       @jeff = @sara.contestants.create!({name: "Jeff", age: 25, hometown: "Boulder"})
+      @larry = @sara.contestants.create!({name: "Larry", age: 30, hometown: "Raleigh"})
       @steve = @sara.contestants.create!({name: "Steve", age: 30, hometown: "Raleigh"})
       @eric = @sara.contestants.create!({name: "Eric", age: 28, hometown: "Madison"})
 

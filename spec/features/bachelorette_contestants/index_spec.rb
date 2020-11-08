@@ -7,7 +7,7 @@ describe 'As a visitor' do
       @sara = @season.bachelorettes.create!({name: "Sara"})
       @sally = @season.bachelorettes.create!({name: "Sally"})
       @jeff = @sara.contestants.create!({name: "Jeff", age: 25, hometown: "Boulder"})
-      @steve = @sara.contestants.create!({name: "Steve", age: 30, hometown: "New York City"})
+      @steve = @sara.contestants.create!({name: "Steve", age: 30, hometown: "Raleigh"})
       @eric = @sara.contestants.create!({name: "Eric", age: 28, hometown: "Madison"})
       @pete = @sally.contestants.create!({name: "Pete", age: 28, hometown: "Madison"})
     end
@@ -37,6 +37,10 @@ describe 'As a visitor' do
       visit "/bachelorettes/#{@sara.id}/contestants"
       click_on "Jeff"
       expect(current_path).to eq("/contestants/#{@jeff.id}")
+    end
+    it "I see a unique list of contestants hometowns" do
+      visit "/bachelorettes/#{@sara.id}/contestants"
+      expect(page).to have_content("These contestants are from: Boulder, Raleigh, Madison#")
     end
   end
 end
