@@ -40,7 +40,7 @@ describe 'As a visitor' do
     end
     it "I see a unique list of contestants hometowns" do
       visit "/bachelorettes/#{@sara.id}/contestants"
-      expect(page).to have_content("These contestants are from: Boulder, Raleigh, Madison#")
+      expect(page).to have_content("These contestants are from: Boulder, Madison, Raleigh")
     end
   end
 end

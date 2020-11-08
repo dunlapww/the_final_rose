@@ -5,3 +5,8 @@
     Hometown: <%= contestant.hometown %><br>
   </div>
 <% end%>
+
+These contestants are from: 
+<% @bachelorette.contestant_hometowns.each do |hometown| %>
+  <%= hometown %>,
+<% end%>
