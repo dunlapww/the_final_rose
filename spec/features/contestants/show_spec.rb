@@ -36,7 +36,6 @@ describe 'As a visitor' do
       
       expect(page).to_not have_content(@outing3.description)
 
-      save_and_open_page
     end
     it "when I click on an outing, i'm directed to the outings show page" do
       visit "/contestants/#{@jeff.id}"
