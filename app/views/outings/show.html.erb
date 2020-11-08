@@ -4,5 +4,12 @@ Location: <%= @outing.location %><br>
 Date: <%= @outing.date %><br>
 Num of Contestants: <%= @outing.num_of_contestants %>
 
+<h2>Contestants</h2>
+<div id="contestants">
+  <% @outing.contestants.each do |contestant|%>
+    <%= contestant.name %><br>
+  <% end%>
+</div>
+
 
 
