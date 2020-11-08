@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :bachelorettes, only: [:show]
   
+  resources :contestants, only: :show
+
   get "/bachelorettes/:bachelorette_id/contestants", to: "bachelorette_contestants#index"
 end

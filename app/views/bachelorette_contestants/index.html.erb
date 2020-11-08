@@ -1,6 +1,6 @@
 <% @bachelorette.contestants.each do |contestant|%>
   <div id="contestant-<%= contestant.id %>">
-    Name: <%= contestant.name %><br>
+    Name: <%= link_to "#{contestant.name}", "/contestants/#{contestant.id}" %><br>
     Age: <%= contestant.age %><br>
     Hometown: <%= contestant.hometown %><br>
   </div>
