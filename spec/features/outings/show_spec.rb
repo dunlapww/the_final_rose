@@ -24,7 +24,7 @@ describe 'As a visitor' do
     end
     it 'shows the total num of contestants on the outing' do
       visit "/outings/#{@outing1.id}"
-      expect(page).to have_content(@outing1.num_of_contestants)
+      expect(page).to have_content("Num of Contestants: #{@outing1.num_of_contestants}")
     end
     it 'show a list of all the contestant names on the outing'
   end
