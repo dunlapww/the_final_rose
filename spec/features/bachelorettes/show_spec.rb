@@ -19,9 +19,8 @@ describe 'As a visitor' do
     end
     it "i see a link to see the bachelorette's contestants ('/bachelorettes/:bachelorette_id/contestants/')" do
       visit "/bachelorettes/#{@sara.id}"
-      click_on "contestants"
+      click_on "Contestants"
       expect(current_path).to eq("/bachelorettes/#{@sara.id}/contestants")
     end
-    it 'on the contestants index page I see only that bachelorettes contestants'
   end
 end
